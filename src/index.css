@@ -1,0 +1,91 @@
+/* Apply a nice background color to the body */
+body {
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;  
+
+}
+/* Style for heading elements */
+h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0 ; /* Add some space above and below each heading */
+    font-family: Arial, sans-serif; /* Choose a nice font */
+    color: #333; /* Set heading text color */
+  }
+  
+  /* Style for specific heading levels, adjust as needed */
+  h1 {
+    font-size: 28px; /* Adjust size for h1 */
+  }
+  
+  h2 {
+    font-size: 24px; /* Adjust size for h2 */
+  }
+  
+  h3 {
+    font-size: 20px; /* Adjust size for h3 */
+  }
+  
+  h4 {
+    font-size: 18px; /* Adjust size for h4 */
+  }
+  
+  h5 {
+    font-size: 16px; /* Adjust size for h5 */
+  }
+  
+  h6 {
+    font-size: 14px; /* Adjust size for h6 */
+  }
+  
+/* Style for div elements */
+div {
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#root{
+    margin: 0;
+    padding: 0;
+}
+/* Style for form elements */
+form {
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for input elements */
+label {
+    display: block;
+}
+
+input {
+    padding: 10px;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+}
+
+/* Style for button elements */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #0056b3;
+}
