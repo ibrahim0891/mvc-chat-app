@@ -8,7 +8,7 @@ const SighoutButton = () => {
         signOut(auth).then(() => {
               // Sign-out successful.
               console.log('signout successful');
-              redirect('/login');
+              redirect('/auth');
 
           }).catch((error) => {
               // An error happened.

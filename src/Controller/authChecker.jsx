@@ -5,7 +5,7 @@ const authChecker = () => {
     return new Promise((resolve) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                resolve(true)
+                resolve(user);
             } else {
                 resolve(false);
             }

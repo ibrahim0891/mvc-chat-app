@@ -1,24 +1,15 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./View/Home"
+import { Outlet } from "react-router-dom"
 import Header from "./Components/Header"
-import Authentication from "./View/Authentication"
-import MessageHeader from "./Components/Message/Message-header"
+import Nav from "./Components/Nav"
+
 
 function App() {
-    
     return (
         <>
-            <BrowserRouter>
-            <div>
-                <Header /> 
-            </div>
-                <Routes>
-                    <Route path="/login" element={<Authentication />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/messages" element={<MessageHeader />} />
-                </Routes>
-            </BrowserRouter>
+                <Header/>
+                <Nav/>
+              <Outlet/>
         </>
     )
 }
