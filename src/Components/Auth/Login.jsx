@@ -3,7 +3,7 @@ import AuthController from "../../Controller/Authcontroler";
 import { useNavigate, Link } from "react-router-dom";
 import SectionDivider from "./SectionDivider";
 
-import Button from "../common/Button";
+import {Button} from "../common/Button";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -35,7 +35,7 @@ const Login = () => {
                 <form action="">
                     <input onChange={(e) => { setEmail(e.target.value) }} type="text" placeholder="Email" />
                     <input onChange={(e) => { setPassword(e.target.value) }} type="password" placeholder="Password" />
-                    <Button ButtonText={processing? 'Loggin in...' : 'Log in'} buttonAction={handleSubmit}/>
+                    <Button buttonText={processing? 'Loggin in...' : 'Log in'} buttonAction={handleSubmit}/>
                 </form>
                 <SectionDivider />
                 <div className="login-footer">

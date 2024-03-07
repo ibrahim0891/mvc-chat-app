@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase";
-import {writeNodeInDb} from "../Model/Database";
+import {writeNodeInDb , updateDataInDb } from "../Model/Database";
 
 
 
@@ -22,7 +22,9 @@ const Authcontroler = (credentials, navigate, type) => {
                 .then((userCredential) => {
                     const user = userCredential.user;
                     const data = { email: credentials.email, fname: credentials.fname, lname: credentials.lname, pass: credentials.password };
-                    writeNodeInDb(data, `users/${user.uid}`);
+                    // writeNodeInDb(data, `users/${user.uid}`);
+                    updateDataInDb({[`users/${user.uid}`]:data});
+                    sessionStorage.setItem('user', JSON.stringify(data))
                     navigate("/");
                 }).catch((error) => {
                     resolve(error.message);

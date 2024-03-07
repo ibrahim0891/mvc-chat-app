@@ -1,6 +1,6 @@
 
 
-import { getDatabase, ref, set , get, child} from "firebase/database";
+import { getDatabase, ref, set , get, child , update, push } from "firebase/database";
 
 const db = getDatabase();
 
@@ -15,12 +15,10 @@ export async function writeNodeInDb(data, path){
 }
 
 
-export async function getDataFromDb(path){
-    // let dbRef = ref(db , path);
+export async function getDataFromDb(path){ 
     let userdata = null;
     await get(child(ref(db),path)).then((snapshot) => {
-        if (snapshot.exists()) {
-            // console.log("Data is: ", snapshot.val());
+        if (snapshot.exists()) { 
             userdata = snapshot.val(); 
         } else {
             console.log("No data available");
@@ -31,4 +29,15 @@ export async function getDataFromDb(path){
         return (null)
     })
     return userdata;
+}
+
+export async function createUniqeKey(path){
+    let dbRef = ref(db)
+    let uniqueKey = push(child(dbRef, path)).key;
+    return (uniqueKey)
+}
+
+export async function updateDataInDb(data){ 
+    update(ref(db), data )  //data must be a object
+    return ('data updated')
 }

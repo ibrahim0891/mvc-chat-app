@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import authChecker from "../Controller/authChecker";
-import Header from "../Components/Header";
+import authChecker from "../Model/authChecker";
+import Header from "../Components/common/Header";
+import AuthpageHeader from "../Components/Auth/AuthPageHeader";
 // import Header from "./Components/Header"
 
 const Authentication = () => {
@@ -21,7 +22,7 @@ const Authentication = () => {
     }, [loggedIn])
     return (
         <div className="user-auth-type">
-            <Header />
+            <AuthpageHeader authpagemessage={"welcome to the DPI community"} />
             <Outlet />
         </div>
 

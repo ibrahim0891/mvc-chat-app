@@ -1,5 +1,5 @@
 
-import authChecker from "../Controller/authChecker";
+import authChecker from "../Model/authChecker";
 import { getDataFromDb } from "../Model/Database"
 import { useEffect, useState } from "react";
 const Profile = () => {
@@ -8,6 +8,7 @@ const Profile = () => {
         authChecker().then((user) => { 
              getDataFromDb('/users/' + user.uid).then((data) => {
                setUser(data)
+               sessionStorage.setItem('user', JSON.stringify(data))
              })
          })
      }, [])

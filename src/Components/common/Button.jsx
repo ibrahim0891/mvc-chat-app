@@ -1,11 +1,10 @@
 
 
-const Button = ({ButtonText , buttonAction}) => {
+export const Button = ({buttonText , buttonAction}) => {
   return (
         <button className="btn" onClick={buttonAction}>
-            {ButtonText}
+            {buttonText}
         </button>
     )
 }
-
-export default Button
+ 

@@ -174,7 +174,7 @@ header p {
 }
 
 /* Button styles */
-.user-auth-type button {
+.user-auth-type button  , .btn {
     background-color: #0078d4;
     /* Microsoft blue */
     color: #ffffff;
@@ -228,12 +228,13 @@ header p {
 
 /* Input styles */
 .login input[type="text"],
-.login input[type="password"] {
+.login input[type="password"] , input , textarea {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #cccccc;
     /* Light gray border */
     border-radius: 4px;
+    width: 100%;
 }
 
 /* Button styles */
@@ -339,4 +340,14 @@ header p {
 .error-details {
     font-size: 16px;
     color: #777;
+}
+
+
+.auth-page-header{
+    background: #0078d4;
+    text-align: center;
+    padding: 1rem; 
+    font-weight: 700;
+    color: white;
+    font-size: 1.4rem;
 }

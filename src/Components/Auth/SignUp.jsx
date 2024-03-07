@@ -4,8 +4,9 @@ import { useState } from "react"
 import { useNavigate , Link } from "react-router-dom";
  
 import SectionDivider from "./SectionDivider";
-import Button from "../common/Button";
+import {Button} from "../common/Button";
 import Input from "../common/Input";
+import { storeUserInLocalStorage } from "../../App";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ const SignUp = () => {
                 setAnyError(error)
                 console.log(anyError);
                 setProcessing(false)
+                storeUserInLocalStorage()
             }
         })
     }
@@ -41,7 +43,7 @@ const SignUp = () => {
                 <Input type={'text'} handleInput={(e) => { setLastName(e.target.value) }} placeholder={'Lastname'} isRequired={true}/>
                 <Input type={'text'} handleInput={(e) => { setEmail(e.target.value)} } placeholder={'Email'} isRequired={true}/> 
                 <Input type={"password" } handleInput={(e) => { setPassword(e.target.value) }} placeholder="Password" isRequired={true}/>
-                <Button ButtonText={processing? 'Signing up...' : 'Sign up'}/>
+                <Button buttonText={processing? 'Signing up...' : 'Sign up'}/>
             </form>
             <SectionDivider/>
             <div className="login-footer">
