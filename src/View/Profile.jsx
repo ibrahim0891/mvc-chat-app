@@ -14,7 +14,7 @@ const Profile = () => {
      }, [])
      return (
         <div className="pad">
-             {user ? <div> <h1>{`${user.fname} ${user.lname}`}</h1> <p>{`${user.email}`}</p>  </div> : 'Loading...'}
+             {user ? <div className="text-center"> <h1>{`${user.fname} ${user.lname}`}</h1> <p>{`${user.email}`}</p>  </div> : 'Loading...'}
         </div>
      )
     }

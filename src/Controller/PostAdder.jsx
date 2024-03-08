@@ -1,10 +1,10 @@
 
 import { createUniqeKey , updateDataInDb } from "../Model/Database";
 
-export function PostAdder(postData) {
+export async function PostAdder(postData) {
  
 
-    createUniqeKey('/posts').then((key) => {
+   await createUniqeKey('/posts').then((key) => {
         const updates = {};
         updates['/posts/' + key] = postData; 
         updateDataInDb(updates)

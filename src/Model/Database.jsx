@@ -20,13 +20,11 @@ export async function getDataFromDb(path){
     await get(child(ref(db),path)).then((snapshot) => {
         if (snapshot.exists()) { 
             userdata = snapshot.val(); 
-        } else {
-            console.log("No data available");
+        } else { 
             return (null)
         }
-    }).catch((error) => {
-        console.log("Error getting data:", error);
-        return (null)
+    }).catch(() => { 
+        return ('')
     })
     return userdata;
 }

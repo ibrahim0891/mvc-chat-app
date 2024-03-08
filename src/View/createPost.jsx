@@ -1,14 +1,14 @@
 
 import {Button} from "../Components/common/Button"
 import Input from "../Components/common/Input"
-
+import {useNavigate}  from "react-router-dom"
 import { useState } from "react" 
 import { PostAdder } from "../Controller/PostAdder"
 
 const CreatePost = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    
+    const navigate = useNavigate();
     const user = JSON.parse(sessionStorage.getItem('user'))
     const timeStamp = new Date().toLocaleString('en-US', {
         weekday: 'short',
@@ -28,7 +28,10 @@ const CreatePost = () => {
             author: user.fname + ' ' + user.lname,
             timeStamp: timeStamp
         }
-        PostAdder(postData)
+        PostAdder(postData).then((res) => {
+            console.log(res);
+            navigate('/profile')
+        })
     }
     return (
         <div className="pad">

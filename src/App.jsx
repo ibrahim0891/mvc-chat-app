@@ -9,6 +9,7 @@ import { getDataFromDb } from './Model/Database.jsx'
 import { useEffect } from "react"
 
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function storeUserInLocalStorage( ) {
     authChecker().then((user) => {
         getDataFromDb('/users/' + user.uid).then((data) => {
