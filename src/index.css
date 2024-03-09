@@ -17,12 +17,12 @@ body {
 
 #root {
     /* Define a default line height */
-    height: auto;
-    width: 420px;
-    aspect-ratio: 9/16;
+    height: auto; 
     background: #f0f0f0;
-    margin: auto;
-    margin-top: 1rem;
+    margin: auto; 
+    overflow:auto;
+    height: 100vh;
+    max-width: 620px;
 }
 
 /* Resetting default list styles */
@@ -431,6 +431,7 @@ textarea {
     /* Headline size */
     text-transform: capitalize;
     /* Capitalize first letter */
+    text-align: center;
 }
 
 .post p.author {
@@ -440,14 +441,18 @@ textarea {
     margin-bottom: 4px;
     /* Spacing between paragraphs */
     line-height: 1.5;
+    text-align: center;
     /* Improve readability */
 }
 
 .post p.content {
     font-weight: 300;
-    font-family: 'URW Gothic';
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
 }
-
+.post .timestamp{
+    text-align: center;
+}
 .post hr {
     border: none;
     /* Remove default border style */
@@ -458,3 +463,75 @@ textarea {
     margin: 16px 0;
     /* Spacing before and after divider */
 }
+
+.dev-message { 
+    color:rgb(66, 66, 66);
+}
+
+.read-more{
+    color: dodgerblue;
+    text-decoration: underline;
+    margin-left: 0.4rem;
+    cursor: pointer;
+}
+
+.app-version {
+    margin-top: 0.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: block;
+}
+.app-version:hover{
+    background: #2b2b2b;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }

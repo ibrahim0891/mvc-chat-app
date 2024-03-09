@@ -16,6 +16,8 @@ const Connect = () => {
                 }
             }
             setOtherUser(array);
+        }).catch(() => {
+             setOtherUser(null);
         });
     }, []); 
 
@@ -45,7 +47,7 @@ const Connect = () => {
                     );
                 })
             ) : (
-                'Loading...'
+                otherUser == null ? 'Loading...' : 'No one to connect with!'
             )}
         </div>
     );
