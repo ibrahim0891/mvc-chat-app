@@ -4,12 +4,13 @@ import Input from "../Components/common/Input"
 import {useNavigate}  from "react-router-dom"
 import { useState } from "react" 
 import { PostAdder } from "../Controller/PostAdder"
+import { getCurrentUser } from "../Model/currentUser"
 
 const CreatePost = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const navigate = useNavigate();
-    const user = JSON.parse(sessionStorage.getItem('user'))
+    const user = getCurrentUser()
     const timeStamp = new Date().toLocaleString('en-US', {
         weekday: 'short',
         day: 'numeric',
@@ -30,7 +31,7 @@ const CreatePost = () => {
         }
         PostAdder(postData).then((res) => {
             console.log(res);
-            navigate('/profile')
+            navigate('/')
         })
     }
     return (

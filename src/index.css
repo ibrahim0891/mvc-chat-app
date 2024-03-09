@@ -18,7 +18,7 @@ body {
 #root {
     /* Define a default line height */
     height: auto;
-    width: 420px ;
+    width: 420px;
     aspect-ratio: 9/16;
     background: #f0f0f0;
     margin: auto;
@@ -74,15 +74,21 @@ nav {
     align-items: center;
     justify-content: space-between;
     overflow-x: scroll;
+
     ::-webkit-scrollbar {
-        width: 1px; /* Adjust width for desired size */
-        background-color: #ddd; /* Set background color */
-      }
-      /* Style the thumb for Chrome, Safari and Opera */
-      ::-webkit-scrollbar-thumb {
-        background-color: #aaa; /* Set thumb color */
-        border-radius: 2px; /* Add rounded corners */
-      }
+        width: 1px;
+        /* Adjust width for desired size */
+        background-color: #ddd;
+        /* Set background color */
+    }
+
+    /* Style the thumb for Chrome, Safari and Opera */
+    ::-webkit-scrollbar-thumb {
+        background-color: #aaa;
+        /* Set thumb color */
+        border-radius: 2px;
+        /* Add rounded corners */
+    }
 }
 
 /* Styling the navigation links */
@@ -163,6 +169,7 @@ header p {
     flex-direction: column;
     height: 100%;
 }
+
 .user-auth-type div.buttons {
     display: flex;
     flex-direction: column;
@@ -183,7 +190,8 @@ header p {
 }
 
 /* Button styles */
-.user-auth-type button  , .btn {
+.user-auth-type button,
+.btn {
     background-color: #0078d4;
     /* Microsoft blue */
     color: #ffffff;
@@ -205,7 +213,7 @@ header p {
 
 .login {
     max-width: 100%;
-    height:inherit;
+    height: inherit;
     padding: 3rem;
     background-color: #ffffff;
     /* White background for the container */
@@ -228,9 +236,11 @@ header p {
     /* Dark gray color for title */
     margin-bottom: 20px;
 }
+
 .text-center {
-    text-align:  center ;
+    text-align: center;
 }
+
 /* Form styles */
 .login form {
     display: flex;
@@ -239,7 +249,9 @@ header p {
 
 /* Input styles */
 .login input[type="text"],
-.login input[type="password"] , input , textarea {
+.login input[type="password"],
+input,
+textarea {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #cccccc;
@@ -329,57 +341,64 @@ header p {
 .error-message {
     font-size: 12px;
     padding-left: 1rem;
-    margin: 1rem 0 ;
+    margin: 1rem 0;
     color: rgb(138, 0, 0);
     background: #f8c4c4;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
-.close-error{
+
+.close-error {
     cursor: pointer;
     padding: 1rem;
-    
+
 }
-.close-error:hover{
+
+.close-error:hover {
     background: #ffe5e5;
 }
+
 .error-message span {
     display: block;
 }
+
 .error-details {
     font-size: 16px;
     color: #777;
 }
 
 
-.auth-page-header{
+.auth-page-header {
     background: #0078d4;
     text-align: center;
-    padding: 1rem; 
+    padding: 1rem;
     font-weight: 700;
     color: white;
     font-size: 1.4rem;
 }
 
-.user-card{
+.user-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 1rem;
 }
-.user-card .part-1{
+
+.user-card .part-1 {
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    align-items: start; 
+    align-items: start;
     justify-content: center;
 }
-.user-card-image img{
-    width:3rem;
+
+.user-card-image img {
+    width: 3rem;
     border-radius: 100px;
 }
+
 .user-card-button button {
     padding: 10px;
     background-color: #0078d4;
@@ -391,4 +410,51 @@ header p {
     cursor: pointer;
     display: block;
     width: 100%;
+}
+
+.post {
+    background-color: #ffffff;
+    /* Light background color */
+    border-radius: 4px;
+    /* Rounded corners */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    margin-bottom: 20px;
+    /* Spacing between cards */
+    padding: 1.75rem;
+    /* Inner padding */
+    border-radius: 0.25rem;
+}
+
+.post h1 {
+    font-size: 2rem;
+    /* Headline size */
+    text-transform: capitalize;
+    /* Capitalize first letter */
+}
+
+.post p.author {
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    /* Body text size */
+    margin-bottom: 4px;
+    /* Spacing between paragraphs */
+    line-height: 1.5;
+    /* Improve readability */
+}
+
+.post p.content {
+    font-weight: 300;
+    font-family: 'URW Gothic';
+}
+
+.post hr {
+    border: none;
+    /* Remove default border style */
+    height: 1px;
+    /* Set thin horizontal line */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Light gray divider */
+    margin: 16px 0;
+    /* Spacing before and after divider */
 }

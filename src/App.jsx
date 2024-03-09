@@ -3,26 +3,17 @@ import { Outlet } from "react-router-dom"
 import Header from "./Components/common/Header"
 import Nav from "./Components/common/Nav"
 
-
-import authChecker from './Model/authChecker.jsx'
-import { getDataFromDb } from './Model/Database.jsx'
+ 
 import { useEffect } from "react"
-
+import { setCurrentUser } from "./Model/currentUser.jsx"
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function storeUserInLocalStorage( ) {
-    authChecker().then((user) => {
-        getDataFromDb('/users/' + user.uid).then((data) => {
-            sessionStorage.setItem('user', JSON.stringify({...data , uid: user.uid}))
-        })
-    })
 
-}
 
 
 function App() {
     useEffect(() => {
-        storeUserInLocalStorage()
+        setCurrentUser()
     },[])
     return (
         <>
@@ -31,6 +22,6 @@ function App() {
             <Outlet />
         </>
     )
-}
+} 
 
 export default App

@@ -2,7 +2,7 @@
 import { signOut } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
-const SighoutButton = () => {
+const SighoutButton = ({classes}) => {
     const redirect = useNavigate();
       const signout = () => {
         signOut(auth).then(() => {
@@ -16,7 +16,7 @@ const SighoutButton = () => {
           });
       }
     return (
-        <button onClick={signout}>Sign out</button>
+        <button className={classes} onClick={signout}>Sign out</button>
     )
 }
 export default SighoutButton;

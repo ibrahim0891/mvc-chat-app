@@ -1,12 +1,12 @@
 
 import HomepageHeader from "../Components/Home/HomepageHeader"
-import SighoutButton from "../Components/Home/SIgnoutButton"
+import Newsfeed from "../Components/Home/NewsFeed" 
  
 const Home = () => {
     return ( 
         <div className="pad"> 
             <HomepageHeader/>
-            <SighoutButton/>
+            <Newsfeed/>
         </div>
     )
 }

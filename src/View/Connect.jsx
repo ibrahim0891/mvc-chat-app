@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { getDataFromDb } from "../Model/Database"
 import { Button } from "../Components/common/Button";
+import { getCurrentUser } from "../Model/currentUser";
 
 
 const Connect = () => {
-    const currentUser = JSON.parse(sessionStorage.getItem('user'));
-    const [otherUser, setOtherUser] = useState(null);
-
-    console.log(currentUser.uid);
+    const currentUser = getCurrentUser() 
+    const [otherUser, setOtherUser] = useState(null); 
     useEffect(() => {
         getDataFromDb('/users/').then((data) => {
             let array = [];
@@ -18,7 +17,7 @@ const Connect = () => {
             }
             setOtherUser(array);
         });
-    }, []);
+    }, []); 
 
     const handleConnect = (user) => {
         alert('You can connect with ' + user.fname + ' ' + user.lname + ' soon!');
