@@ -26,7 +26,7 @@ const Profile = () => {
         setUploadProgress(progress)
         setShowUpload(true)
         if (progress == 100) {
-            setUploadStateText('Nice! Upload a new image! Your image will visible soon!')
+            setUploadStateText('Nice!Your image will visible soon! You can upload another one!')
             
         } else {
             setUploadStateText('Uploading...')
@@ -55,7 +55,7 @@ const Profile = () => {
                         </div>
                         <div className="upload-state">
                             <p> {uploadProgress.toFixed(0) + '%'} </p>
-                            <p className="progress-text"> {uploadStatetext} </p>
+                            <p className="progress-text text-center"> {uploadStatetext} </p>
                         </div>
                     </div>
                 }

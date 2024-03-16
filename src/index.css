@@ -261,7 +261,7 @@ textarea {
 }
 
 /* Button styles */
-.login button {
+ button {
     padding: 10px;
     background-color: #0078d4;
     /* Microsoft blue */
@@ -556,8 +556,8 @@ textarea {
 
 .upload-state{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    padding-top: 0.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center; 
+    padding: 1rem ;
 }
