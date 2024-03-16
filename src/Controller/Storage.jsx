@@ -8,15 +8,15 @@ import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
  * 
  * @returns {Promise<number>} A Promise that resolves with the final upload progress percentage.
  */
-export function RunCode(path, file, onProgress) {
+export function RunCode(path, file , type , onProgress) { //type means the perpose of the image , like profile picutre or post picture
     if (!file.type.startsWith('image/')) {
         alert('Only image uploads are allowed');
         return;
     }
     const storage = getStorage();
     const storageRef = ref(storage);
-
-    const myFile = ref(storageRef, path + file.name);
+    // const perpose = type; 
+    const myFile = ref(storageRef, path + file.name); //file.name will be replaced by type soon
     let uploadTask = uploadBytesResumable(myFile, file);
     uploadTask.on('state_changed',
         (snapshot) => {

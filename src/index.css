@@ -273,7 +273,9 @@ textarea {
     display: block;
     width: 100%;
 }
-
+.login button {
+    width: 100%;
+}
 .login button:hover {
     background-color: #005a9e;
     /* Darker blue on hover */

@@ -37,7 +37,7 @@ const Profile = () => {
     const userOnce = JSON.parse(localStorage.getItem('user'));
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
-        RunCode('/profile/' + userOnce.uid + '/', file , onUploadProgress)
+        RunCode('/profile/' + userOnce.uid + '/', file, 'profile-picture', onUploadProgress)
     }
     return (
         <div>
