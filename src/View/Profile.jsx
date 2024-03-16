@@ -26,7 +26,7 @@ const Profile = () => {
         setUploadProgress(progress)
         setShowUpload(true)
         if (progress == 100) {
-            setUploadStateText('Nice!Your image will visible soon! You can upload another one!')
+            setUploadStateText('Your image will be visible soon! You can upload another one!')
             
         } else {
             setUploadStateText('Uploading...')
@@ -37,7 +37,7 @@ const Profile = () => {
     const userOnce = JSON.parse(localStorage.getItem('user'));
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
-        RunCode('/profile/' + userOnce.uid + '/', file, onUploadProgress)
+        RunCode('/profile/' + userOnce.uid + '/', file , onUploadProgress)
     }
     return (
         <div>
