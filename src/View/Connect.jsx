@@ -22,7 +22,7 @@ const Connect = () => {
     }, []); 
 
     const handleConnect = (user) => {
-        alert('You can connect with ' + user.fname + ' ' + user.lname + ' soon!');
+        alert('You can connect with ' + user.fname + ' ' + user.lname + ' soon! His uid is ' + user.uid);
     }
     return (
         <div className="pad">

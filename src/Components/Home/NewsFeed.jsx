@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import { getDataFromDb } from "../../Model/Database";
 const Newsfeed = () => {
-    const [posts, setPosts] = useState(null);
-    const [content, setContent] = useState('');
+    const [posts, setPosts] = useState(null); 
 
 
     useEffect(() => {
@@ -42,9 +41,11 @@ const Newsfeed = () => {
                     <p className="timestamp"> {posts.timeStamp} </p>
                     <hr />
                     <p className="content"> {expendedPost.includes(index) ? posts.content : shrink(posts.content)}
-                        <span className="text-center read-more" onClick={() => { toggleExpendedPost(index) }}>
-                            {expendedPost.includes(index) ? 'Read less' : 'Read more...'}
-                        </span>
+                        {
+                            posts.content.length > 200 ?
+                                <span className="text-center read-more" onClick={() => { toggleExpendedPost(index) }}>
+                                    {expendedPost.includes(index) ? 'Read less' : 'Read more...'}
+                                </span> : null}
                     </p>
                     <hr />
                     <p className="text-center dev-message"> Your can interect with this post soon...</p>

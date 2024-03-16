@@ -17,10 +17,10 @@ body {
 
 #root {
     /* Define a default line height */
-    height: auto; 
+    height: auto;
     background: #f0f0f0;
-    margin: auto; 
-    overflow:auto;
+    margin: auto;
+    overflow: auto;
     height: 100vh;
     max-width: 620px;
 }
@@ -450,9 +450,11 @@ textarea {
     font-family: 'Times New Roman', Times, serif;
     text-align: justify;
 }
-.post .timestamp{
+
+.post .timestamp {
     text-align: center;
 }
+
 .post hr {
     border: none;
     /* Remove default border style */
@@ -464,11 +466,11 @@ textarea {
     /* Spacing before and after divider */
 }
 
-.dev-message { 
-    color:rgb(66, 66, 66);
+.dev-message {
+    color: rgb(66, 66, 66);
 }
 
-.read-more{
+.read-more {
     color: dodgerblue;
     text-decoration: underline;
     margin-left: 0.4rem;
@@ -482,7 +484,8 @@ textarea {
     border-radius: 8px;
     display: block;
 }
-.app-version:hover{
+
+.app-version:hover {
     background: #2b2b2b;
     color: white;
     cursor: pointer;
@@ -493,11 +496,12 @@ textarea {
 .tooltip {
     position: relative;
     display: block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
-  
-  /* Tooltip text */
-  .tooltip .tooltiptext {
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: #555;
@@ -505,21 +509,21 @@ textarea {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-  
+
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
     margin-left: -60px;
-  
+
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
-  }
-  
-  /* Tooltip arrow */
-  .tooltip .tooltiptext::after {
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -528,10 +532,32 @@ textarea {
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-  }
+}
+
+.progress-container {
+    background: #cccccc;
+    width: 100%;
+    position: relative;
+}
+.progress-bar {
+    background: rgb(76, 166, 255);
+    text-align: center;
+    color: white;
+    width: 0%;
+    height: 0.25rem;
+    transition: width 0.5s;
+}
+
+.upload-state{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    padding-top: 0.25rem;
+}

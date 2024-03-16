@@ -10,11 +10,10 @@ import { setCurrentUser } from "./Model/currentUser.jsx"
 // eslint-disable-next-line react-refresh/only-export-components
 
 
-
 function App() {
     useEffect(() => {
         setCurrentUser()
-    },[])
+    },[])  
     return (
         <>
             <Header />
