@@ -33,7 +33,7 @@ const Connect = () => {
                         <div key={user.uid} className="user-card">
                             <div className="part-1">
                                 <div className="user-card-image">
-                                    <img src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
+                                    <img src={user.profilePicture} alt="" />
                                 </div>
                                 <div className="user-card-info">
                                     <h4>{user.fname} {user.lname}</h4>

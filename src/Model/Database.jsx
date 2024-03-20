@@ -35,7 +35,7 @@ export async function createUniqeKey(path){
     return (uniqueKey)
 }
 
-export async function updateDataInDb(data){ 
-    update(ref(db), data )  //data must be a object
+export async function updateDataInDb(path,data){ 
+    update(ref(db , path), data )  //data must be a object
     return ('data updated')
 }

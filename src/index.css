@@ -399,6 +399,8 @@ textarea {
 .user-card-image img {
     width: 3rem;
     border-radius: 100px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
 }
 
 .user-card-button button {
@@ -562,4 +564,11 @@ textarea {
     gap: 0.5rem;
     align-items: center; 
     padding: 1rem ;
+}
+
+img.profile-picture{
+    max-width: 24rem;
+    margin: auto;
+    border-radius: 4px;
+    display: block;
 }

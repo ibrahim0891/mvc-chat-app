@@ -36,7 +36,6 @@ const SignUp = () => {
                 setAnyError(error)
                 console.log(anyError);
                 setProcessing(false)
-                setCurrentUser()
             }
         })
     }
