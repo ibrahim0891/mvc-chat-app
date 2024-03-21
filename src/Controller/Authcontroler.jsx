@@ -12,7 +12,7 @@ const Authcontroler = (credentials, navigate, type) => {
                 .then((userCredential) => {
                     const user = userCredential.user;
                     resolve(user)
-                    navigate("/");
+                    navigate("/"); 
                 }).catch((error) => {
                     resolve(error.message);
 
@@ -25,6 +25,7 @@ const Authcontroler = (credentials, navigate, type) => {
                     // writeNodeInDb(data, `users/${user.uid}`);
                     updateDataInDb('/' , {[`users/${user.uid}`]:data});
                     sessionStorage.setItem('user', JSON.stringify(data))
+                    localStorage.setItem('user', JSON.stringify(data))
                     navigate("/");
                 }).catch((error) => {
                     resolve(error.message);

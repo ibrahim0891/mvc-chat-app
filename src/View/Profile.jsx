@@ -4,30 +4,31 @@ import { getDataFromDb, updateDataInDb } from "../Model/Database"
 import { useEffect, useState } from "react";
 import SignoutButton from '../Components/Auth/SIgnoutButton'
 import { upload, getImageUrl } from "../Controller/Storage";
+import { useNavigate } from "react-router-dom";
 
 
-
-const Profile = () => {
+const Profile = (uid) => {
     const [user, setUser] = useState(null);
     let [uploadProgress, setUploadProgress] = useState(0);
     const [uploadStatetext, setUploadStateText] = useState('')
     const [showUpload, setShowUpload] = useState(false)
-    useEffect(() => {
-        authChecker().then((user) => {
-            getDataFromDb('/users/' + user.uid).then((data) => {
-                setUser(data)
-                // sessionStorage.setItem('user', JSON.stringify(data))
-
-            })
-        })
-    }, [])
+    const [profilePicture, setProfilePicture] = useState('')
+    const history = useNavigate()
+    // useEffect(() => {
+    //     authChecker().then((user) => {
+    //         getDataFromDb('/users/' + user.uid).then((data) => {
+    //             setUser(data)
+    //             // sessionStorage.setItem('user', JSON.stringify(data))
+    //         })
+    //     })
+    // }, [])
 
     const onUploadProgress = (progress) => {
         setUploadProgress(progress)
         setShowUpload(true)
         if (progress == 100) {
-            setUploadStateText('Your image will be visible soon! You can upload another one!')
-
+            setUploadStateText('Uploaded!')
+            updateDataInDb('/users/' + userOnce.uid, { profilePicture: profilePicture })
         } else {
             setUploadStateText('Uploading...')
 
@@ -35,29 +36,27 @@ const Profile = () => {
     }
 
     const userOnce = JSON.parse(localStorage.getItem('user'));
+    console.log(userOnce);
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
         upload('/profile/' + userOnce.uid + '/', file, 'profile-picture', onUploadProgress).then((msg) => {
-            getProfilePicture()
-
+            getProfilePicture() 
         })
     }
-    const [profilePicture, setProfilePicture] = useState('')
     useEffect(() => {
         getProfilePicture()
     }, [])
     const getProfilePicture = () => {
         getImageUrl('/profile/' + userOnce.uid + '/', 'profile-picture').then((url) => {
             setProfilePicture(url)
-            updateDataInDb('/users/' + userOnce.uid, { profilePicture: url })
         })
     }
-
+console.log(uid);
     return (
         <div>
 
             <div className="pad">
-                {user ? <div className="text-center pad"> <h1>{`${user.fname} ${user.lname}`}</h1> <p>{`${user.email}`}</p>  </div> : 'Loading...'}
+                {userOnce ? <div className="text-center pad"> <h1>{`${userOnce.fname} ${userOnce.lname}`}</h1> <p>{`${userOnce.email}`}</p>  </div> : 'Loading...'}
                 <div className="pad">
                     <p> Select an image to upload!</p>
                 </div>
@@ -74,11 +73,11 @@ const Profile = () => {
                     </div>
                 }
                 {
-                    user ?
+                    userOnce ?
                         <div className="pad">
                             <h3 className="pad text-center"> Your profile picture: </h3>
-                             { profilePicture == '' ? 'You haven\'t uploaded any picture yet ' : <img className="profile-picture" src={profilePicture} alt="" />}
-                        </div> : 'Loading..'}'You haven\\'t uploaded any picture yet ' 
+                             { userOnce.profilePicture == null ? 'You haven\'t uploaded any picture yet ' : <img className="profile-picture" src={userOnce.profilePicture} alt="" />}
+                        </div> : 'Loading..'} 
                 <div className="pad text-center">
                     <SignoutButton classes=' ' />
                 </div>

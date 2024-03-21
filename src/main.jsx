@@ -15,6 +15,7 @@ import Profile from './View/Profile.jsx'
 import Connect from './View/Connect.jsx'
 import CreatePost from './View/createPost.jsx' 
 
+const currentUser = JSON.parse(localStorage.getItem('user'));
 const router = createBrowserRouter([
     {
         path: '/',
@@ -50,6 +51,9 @@ const router = createBrowserRouter([
             element: <SignUp />
         }
         ]
+    },{
+        path: '/profile/:uid',
+        element: <Profile />,
     }
 ])
 

@@ -1,7 +1,18 @@
 import { getStorage,getDownloadURL , ref, uploadBytesResumable } from "firebase/storage";
-
+import imageCompression from "browser-image-compression";
 const storage = getStorage();
 const storageRef = ref(storage);
+
+async function compressImage(imageFile){
+  let options = {
+    maxSizeMB: 0.5,
+    maxWidthOrHeight: 600,
+    useWebWorker: true,
+  }
+  const compressedFile = await imageCompression(imageFile, options) 
+  return compressedFile
+}
+
 
 export async function upload(path, file , type , onProgress) { //type means the perpose of the image , like profile picutre or post picture
     if (!file.type.startsWith('image/')) {
@@ -10,23 +21,18 @@ export async function upload(path, file , type , onProgress) { //type means the 
     }
     // const perpose = type; 
     const myFile = ref(storageRef, path + type ); //file.name will be replaced by type soon
-    let uploadTask = uploadBytesResumable(myFile, file);
-    uploadTask.on('state_changed',
-        (snapshot) => {
-            const uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            onProgress(uploadProgress)
+    console.log();
+    compressImage(file).then((file) => {
+        let uploadTask = uploadBytesResumable(myFile, file);
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                onProgress(uploadProgress)
 
-        }
-    )
-    //add a methode to that will run on upload finish
-    await uploadTask.then((snapshot) => {
-        return 'uploaded'
+            }
+        )
     })
-    .catch((error) => {
-        console.log('Upload failed: ', error);
-    })
-     
-
+    
 } 
 
 export async function getImageUrl(path,type){

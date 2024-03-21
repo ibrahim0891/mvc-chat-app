@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { getDataFromDb } from "../Model/Database"
 import { Button } from "../Components/common/Button";
 import { getCurrentUser } from "../Model/currentUser";
-
+import { Link } from "react-router-dom";
 
 const Connect = () => {
-    const currentUser = getCurrentUser() 
-    const [otherUser, setOtherUser] = useState(null); 
+    const currentUser = getCurrentUser()
+    const [otherUser, setOtherUser] = useState(null);
     useEffect(() => {
         getDataFromDb('/users/').then((data) => {
             let array = [];
@@ -17,9 +17,9 @@ const Connect = () => {
             }
             setOtherUser(array);
         }).catch(() => {
-             setOtherUser(null);
+            setOtherUser(null);
         });
-    }, []); 
+    }, []);
 
     const handleConnect = (user) => {
         alert('You can connect with ' + user.fname + ' ' + user.lname + ' soon! His uid is ' + user.uid);
@@ -36,12 +36,15 @@ const Connect = () => {
                                     <img src={user.profilePicture} alt="" />
                                 </div>
                                 <div className="user-card-info">
-                                    <h4>{user.fname} {user.lname}</h4>
-                                    <p>{user.email}</p>
+                                    <Link to={`/profile/${user.uid}`} >
+                                        <h4>{user.fname} {user.lname}</h4>
+                                        <p>{user.email}</p>
+                                    </Link>
+
                                 </div>
                             </div>
                             <div className="user-card-button">
-                                <Button buttonAction={()=>{handleConnect(user)}} buttonText={'Connect'}></Button>
+                                <Button buttonAction={() => { handleConnect(user) }} buttonText={'Connect'}></Button>
                             </div>
                         </div>
                     );

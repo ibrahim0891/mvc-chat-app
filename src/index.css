@@ -572,3 +572,22 @@ img.profile-picture{
     border-radius: 4px;
     display: block;
 }
+
+.main-header{
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.profile-picture-container{
+    aspect-ratio: 1/1;
+    border-radius: 1000px;
+    overflow: hidden;
+    width: 3rem;
+    height: 3rem;
+}
+.profile-picture-container img{
+    width: 100%;
+    height: auto
+}

@@ -9,6 +9,7 @@ const SighoutButton = ({classes}) => {
               // Sign-out successful.
               console.log('signout successful');
               redirect('/auth');
+              localStorage.setItem('user', null);   
 
           }).catch((error) => {
               // An error happened.
