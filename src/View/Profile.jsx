@@ -4,10 +4,12 @@ import { getDataFromDb, updateDataInDb } from "../Model/Database"
 import { useEffect, useState } from "react";
 import SignoutButton from '../Components/Auth/SIgnoutButton'
 import { upload, getImageUrl } from "../Controller/Storage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
-const Profile = (uid) => {
+const Profile = ( ) => {
+    const { uid } = useParams();
+    console.log(uid);
     const [user, setUser] = useState(null);
     let [uploadProgress, setUploadProgress] = useState(0);
     const [uploadStatetext, setUploadStateText] = useState('')
@@ -36,11 +38,11 @@ const Profile = (uid) => {
     }
 
     const userOnce = JSON.parse(localStorage.getItem('user'));
-    console.log(userOnce);
+
     const handleFileSelect = (e) => {
         const file = e.target.files[0];
         upload('/profile/' + userOnce.uid + '/', file, 'profile-picture', onUploadProgress).then((msg) => {
-            getProfilePicture() 
+            getProfilePicture()
         })
     }
     useEffect(() => {
@@ -51,10 +53,8 @@ const Profile = (uid) => {
             setProfilePicture(url)
         })
     }
-console.log(uid);
     return (
         <div>
-
             <div className="pad">
                 {userOnce ? <div className="text-center pad"> <h1>{`${userOnce.fname} ${userOnce.lname}`}</h1> <p>{`${userOnce.email}`}</p>  </div> : 'Loading...'}
                 <div className="pad">
@@ -76,7 +76,7 @@ console.log(uid);
                     userOnce ?
                         <div className="pad">
                             <h3 className="pad text-center"> Your profile picture: </h3>
-                             { userOnce.profilePicture == null ? 'You haven\'t uploaded any picture yet ' : <img className="profile-picture" src={userOnce.profilePicture} alt="" />}
+                            {userOnce.profilePicture == null ? 'You haven\'t uploaded any picture yet ' : <img className="profile-picture" src={userOnce.profilePicture} alt="" />}
                         </div> : 'Loading..'} 
                 <div className="pad text-center">
                     <SignoutButton classes=' ' />

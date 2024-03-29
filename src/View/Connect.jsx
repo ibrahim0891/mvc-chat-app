@@ -4,7 +4,7 @@ import { Button } from "../Components/common/Button";
 import { getCurrentUser } from "../Model/currentUser";
 import { Link } from "react-router-dom";
 
-const Connect = () => {
+const Connect = () => { 
     const currentUser = getCurrentUser()
     const [otherUser, setOtherUser] = useState(null);
     useEffect(() => {
@@ -22,8 +22,8 @@ const Connect = () => {
     }, []);
 
     const handleConnect = (user) => {
-        alert('You can connect with ' + user.fname + ' ' + user.lname + ' soon! His uid is ' + user.uid);
-    }
+        
+    } 
     return (
         <div className="pad">
             <h4>Connnect with your community.</h4>
@@ -52,6 +52,15 @@ const Connect = () => {
             ) : (
                 otherUser == null ? 'Loading...' : 'No one to connect with!'
             )}
+
+            <div>
+                <h3>Received Requests</h3>
+                <div>
+                    <p> User 1 </p>
+                    <p> User 2 </p>
+                    <p> User 3</p>
+                </div>
+            </div>
         </div>
     );
 };

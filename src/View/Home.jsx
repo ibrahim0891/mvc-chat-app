@@ -12,7 +12,7 @@ const Home = () => {
         <div className="pad"> 
             <Newsfeed/>
             <HomepageHeader/>
-            <a href="https://github.com/ibrahim0891/mvc-chat-app" className="text-center app-version dev-message tooltip"> App version: v3.20.24.11.47.1 
+            <a href="https://github.com/ibrahim0891/mvc-chat-app" className="text-center app-version dev-message tooltip"> App version: v3.29.24.05.09.1 
                 <span className="tooltiptext">View code</span>
             </a>
         </div>

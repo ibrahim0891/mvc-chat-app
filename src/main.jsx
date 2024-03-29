@@ -14,6 +14,7 @@ import SignUp from './Components/Auth/SignUp.jsx'
 import Profile from './View/Profile.jsx'
 import Connect from './View/Connect.jsx'
 import CreatePost from './View/createPost.jsx' 
+import OthersProfile from './View/OthersProfile.jsx'
 
 const currentUser = JSON.parse(localStorage.getItem('user'));
 const router = createBrowserRouter([
@@ -53,14 +54,14 @@ const router = createBrowserRouter([
         ]
     },{
         path: '/profile/:uid',
-        element: <Profile />,
+        element: <OthersProfile />,
     }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode> 
         <RouterProvider router={router} /> 
-    </React.StrictMode>,
+    </React.StrictMode>
 )
 
 

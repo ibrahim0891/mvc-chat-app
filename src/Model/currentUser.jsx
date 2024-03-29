@@ -16,7 +16,7 @@ export function setCurrentUser( ) {
 export function getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));
 }
-const userOnce = JSON.parse(sessionStorage.getItem('user'));
+const userOnce = JSON.parse(localStorage.getItem('user'));
 
 export async function getProfilePicture() {
     let url = await getImageUrl('/profile/' + userOnce.uid + '/', 'profile-picture') 
