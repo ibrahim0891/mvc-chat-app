@@ -5,7 +5,7 @@ import { upload, getImageUrl } from "../Controller/Storage";
 
 export function setCurrentUser( ) {
     authChecker().then((user) => {
-        getDataFromDb('/users/' + user.uid).then((data) => {
+        getDataFromDb('/users/' + user.uid + "/info").then((data) => {
             // sessionStorage.setItem('user', JSON.stringify({...data , uid: user.uid}))
             localStorage.setItem('user', JSON.stringify({...data , uid: user.uid}))
         })
